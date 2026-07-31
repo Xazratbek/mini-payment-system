@@ -6,9 +6,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from .views import frontend_app
 
 
 urlpatterns = [
+    path('', frontend_app, name='frontend-app'),
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/wallet/', include('wallets.urls')),
